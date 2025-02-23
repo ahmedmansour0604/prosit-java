@@ -1,9 +1,9 @@
 package tn.esprit.gestionzoo.entities;
 public class Animal {
 
-    String family, name;
-    private int age;
-    boolean isMammal;
+    protected String family, name;
+    protected int age;
+    protected boolean isMammal;
 
 
     public Animal() {
@@ -39,3 +39,4 @@ public class Animal {
     public void setIsMammal(boolean isMammal) {this.isMammal = isMammal;}
     public boolean getIsMammal() {return isMammal;}
 }
+

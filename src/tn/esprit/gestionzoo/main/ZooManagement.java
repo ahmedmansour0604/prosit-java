@@ -2,6 +2,8 @@ package tn.esprit.gestionzoo.main;
 
 import tn.esprit.gestionzoo.entities.*;
 
+import java.util.function.DoublePredicate;
+
 public class ZooManagement {
 
     public static void main(String[] args) {
@@ -46,7 +48,23 @@ public class ZooManagement {
 
 //        System.out.println(Zoo.comparerZoo(myZoo, notMyZoo));
 //        System.out.println(myZoo.isZooFull());
+        /*Aquatic aqua = new Aquatic();
+        Terrestrial terr =  new Terrestrial();
+        Dolphin dolphin = new Dolphin();
+        Penguin penguin = new Penguin();
+         */
+        Aquatic aqua = new Aquatic("Fish", 2, false, "sea");
+        Terrestrial terr = new Terrestrial("Insects","Ant",1,false,6);
+        Dolphin dolphin = new Dolphin("MrDolphin",3,true,"Ocean",15);
+        Penguin penguin = new Penguin("MrPenguin",5,false,"Greenland",10);
 
+        System.out.println(aqua);
+        System.out.println(terr);
+        System.out.println(dolphin);
+        System.out.println(penguin);
+
+        aqua.swim();
+        dolphin.swim();
+        penguin.swim();
     }
-
 }

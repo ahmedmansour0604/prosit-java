@@ -2,10 +2,10 @@ package tn.esprit.gestionzoo.entities;
 public class Zoo {
 
     static final int NUMBER_OF_CAGES = 25;
-    Animal[] animals;
-    private String name;
-    String city;
-    int nbrAnimals;
+    protected Animal[] animals;
+    protected String name;
+    protected String city;
+    protected int nbrAnimals;
 
     public Zoo() {
     }
@@ -78,4 +78,8 @@ public class Zoo {
         this.name = name;
         return true;
     }
+    public String getName() {return this.name;}
+    public void setCity(String city) {this.city = city;}
+    public String getCity() { return this.city;}
+    public int getNbrAnimals() {return this.nbrAnimals;}
 }
