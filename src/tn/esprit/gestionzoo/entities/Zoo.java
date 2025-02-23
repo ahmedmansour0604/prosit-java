@@ -1,8 +1,10 @@
+package tn.esprit.gestionzoo.entities;
 public class Zoo {
 
     static final int NUMBER_OF_CAGES = 25;
     Animal[] animals;
-    String name, city;
+    private String name;
+    String city;
     int nbrAnimals;
 
     public Zoo() {
@@ -20,11 +22,11 @@ public class Zoo {
         return z2;
     }
 
-    void displayZoo() {
+    public void displayZoo() {
         System.out.println("Name: " + name + ", City: " + city + ", N° Cages: " + NUMBER_OF_CAGES + " N° animals: " + nbrAnimals);
     }
 
-    boolean addAnimal(Animal animal) {
+    public boolean addAnimal(Animal animal) {
         if (searchAnimal(animal) != -1)
             return false;
         if (isZooFull())
@@ -34,7 +36,7 @@ public class Zoo {
         return true;
     }
 
-    boolean removeAnimal(Animal animal) {
+    public boolean removeAnimal(Animal animal) {
         int indexAnimal = searchAnimal(animal);
         if (indexAnimal == -1)
             return false;
@@ -46,14 +48,14 @@ public class Zoo {
         return true;
     }
 
-    void displayAnimals() {
+    public void displayAnimals() {
         System.out.println("List of animals of " + name + ":");
         for (int i = 0; i < nbrAnimals; i++) {
             System.out.println(animals[i]);
         }
     }
 
-    int searchAnimal(Animal animal) {
+    public int searchAnimal(Animal animal) {
         int index = -1;
         for (int i = 0; i < nbrAnimals; i++) {
             if (animal.name == animals[i].name)
@@ -62,12 +64,18 @@ public class Zoo {
         return index;
     }
 
-    boolean isZooFull() {
+    public boolean isZooFull() {
         return nbrAnimals == NUMBER_OF_CAGES;
     }
 
     @Override
     public String toString() {
         return "Name: " + name + ", City: " + city + ", N° Cages: " + NUMBER_OF_CAGES + " N° animals: " + nbrAnimals;
+    }
+
+    public boolean setName(String name) {
+        if (name.isEmpty()) return false;
+        this.name = name;
+        return true;
     }
 }
