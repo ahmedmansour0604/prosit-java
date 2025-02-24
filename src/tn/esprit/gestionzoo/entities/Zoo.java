@@ -2,10 +2,13 @@ package tn.esprit.gestionzoo.entities;
 public class Zoo {
 
     static final int NUMBER_OF_CAGES = 25;
+    static final int NUMBER_OF_AQUATIC_ANIMALS = 10;
     protected Animal[] animals;
     protected String name;
     protected String city;
     protected int nbrAnimals;
+    protected Aquatic[] aquaticAnimals;
+    protected int nbrAquatic;
 
     public Zoo() {
     }
@@ -14,6 +17,9 @@ public class Zoo {
         animals = new Animal[NUMBER_OF_CAGES];
         this.name = name;
         this.city = city;
+        nbrAnimals = 0;
+        nbrAquatic = 0;
+        aquaticAnimals = new Aquatic[NUMBER_OF_AQUATIC_ANIMALS];
     }
 
     static Zoo comparerZoo(Zoo z1, Zoo z2) {
@@ -82,4 +88,48 @@ public class Zoo {
     public void setCity(String city) {this.city = city;}
     public String getCity() { return this.city;}
     public int getNbrAnimals() {return this.nbrAnimals;}
+
+    public int searchAquatic(Aquatic aquatic) {
+        int index = -1;
+        for (int i = 0; i < nbrAquatic; i++) {
+            if (aquatic.name == aquaticAnimals[i].name)
+                return i;
+        }
+        return index;
+    }
+
+    public void addAquaticAnimal(Aquatic aquatic){
+        if (searchAquatic(aquatic) != -1 || nbrAquatic == NUMBER_OF_AQUATIC_ANIMALS)
+            return;
+        aquaticAnimals[nbrAquatic] = aquatic;
+        nbrAquatic++;
+    }
+    public void aquaticSwim(){
+        for(int i = 0; i < nbrAquatic; i++){
+            aquaticAnimals[i].swim();
+        }
+    }
+
+    public float maxPenguinSwimmingDepth() {
+        float max=-1;
+        for (int i = 0; i < nbrAquatic; i++){
+            if(aquaticAnimals[i].getClass()==Penguin.class){
+                Penguin penguin = (Penguin)aquaticAnimals[i];
+                if(penguin.getSwimmingDepth()>max){
+                    max=penguin.getSwimmingDepth();
+                }
+            }
+        }
+        return max;
+    }
+    public void displayNumberOfAquaticsByType(){
+        int nbrPenguins=0,nbrDolphins=0;
+        for(int i = 0; i < nbrAquatic; i++){
+            if(aquaticAnimals[i].getClass()==Penguin.class){nbrPenguins++;}
+            if(aquaticAnimals[i].getClass()==Dolphin.class){nbrDolphins++;}
+        }
+        System.out.println("Dolphins : "+nbrDolphins+" Penguins : "+nbrPenguins);
+    }
+
+
 }

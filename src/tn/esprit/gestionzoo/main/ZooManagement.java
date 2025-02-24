@@ -56,15 +56,30 @@ public class ZooManagement {
         Aquatic aqua = new Aquatic("Fish", 2, false, "sea");
         Terrestrial terr = new Terrestrial("Insects","Ant",1,false,6);
         Dolphin dolphin = new Dolphin("MrDolphin",3,true,"Ocean",15);
-        Penguin penguin = new Penguin("MrPenguin",5,false,"Greenland",10);
+        Penguin penguin1 = new Penguin("MrPenguin1",5,false,"Greenland",10);
+        Penguin penguin2 = new Penguin("MrPenguin2",5,false,"Greenland",1.5f);
+        Penguin penguin3 = new Penguin("MrPenguin3",5,false,"Greenland",11.1f);
+        Penguin penguin4 = new Penguin("MrPenguin3",5,true,"Greenland",111.1f);
+
 
         System.out.println(aqua);
         System.out.println(terr);
         System.out.println(dolphin);
-        System.out.println(penguin);
+        System.out.println(penguin1);
 
         aqua.swim();
         dolphin.swim();
-        penguin.swim();
+        penguin1.swim();
+        System.out.println("---------------------------------------");
+        myZoo.addAquaticAnimal(penguin1);
+        myZoo.addAquaticAnimal(aqua);
+        myZoo.addAquaticAnimal(penguin2);
+        myZoo.addAquaticAnimal(dolphin);
+        myZoo.addAquaticAnimal(penguin3);
+        myZoo.aquaticSwim();
+        System.out.println("---------------------------------------");
+        System.out.println(myZoo.maxPenguinSwimmingDepth());
+        myZoo.displayNumberOfAquaticsByType();
+        System.out.println(penguin3.equals(penguin2));
     }
 }
