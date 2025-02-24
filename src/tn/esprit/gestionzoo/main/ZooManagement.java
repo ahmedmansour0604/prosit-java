@@ -53,7 +53,7 @@ public class ZooManagement {
         Dolphin dolphin = new Dolphin();
         Penguin penguin = new Penguin();
          */
-        Aquatic aqua = new Aquatic("Fish", 2, false, "sea");
+        //Aquatic aqua = new Aquatic("Fish", 2, false, "sea");
         Terrestrial terr = new Terrestrial("Insects","Ant",1,false,6);
         Dolphin dolphin = new Dolphin("MrDolphin",3,true,"Ocean",15);
         Penguin penguin1 = new Penguin("MrPenguin1",5,false,"Greenland",10);
@@ -62,17 +62,17 @@ public class ZooManagement {
         Penguin penguin4 = new Penguin("MrPenguin3",5,true,"Greenland",111.1f);
 
 
-        System.out.println(aqua);
+        //System.out.println(aqua);
         System.out.println(terr);
         System.out.println(dolphin);
         System.out.println(penguin1);
 
-        aqua.swim();
+        //aqua.swim();
         dolphin.swim();
         penguin1.swim();
         System.out.println("---------------------------------------");
         myZoo.addAquaticAnimal(penguin1);
-        myZoo.addAquaticAnimal(aqua);
+        //myZoo.addAquaticAnimal(aqua);
         myZoo.addAquaticAnimal(penguin2);
         myZoo.addAquaticAnimal(dolphin);
         myZoo.addAquaticAnimal(penguin3);
@@ -81,5 +81,6 @@ public class ZooManagement {
         System.out.println(myZoo.maxPenguinSwimmingDepth());
         myZoo.displayNumberOfAquaticsByType();
         System.out.println(penguin3.equals(penguin2));
+
     }
 }
