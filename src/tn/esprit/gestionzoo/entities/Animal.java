@@ -10,7 +10,8 @@ public class Animal {
 
     }
 
-    public Animal(String family, String name, int age, boolean isMammal) {
+    public Animal(String family, String name, int age, boolean isMammal) throws InvalidAgeException {
+        if (age < 0) {throw new InvalidAgeException("Invalid Age!");}
         this.family = family;
         this.name = name;
         this.age = age;
@@ -26,8 +27,8 @@ public class Animal {
                 ", isMammal=" + isMammal +
                 '}';
     }
-    public boolean setAge(int age) {
-        if (age < 0) return false;
+    public boolean setAge(int age) throws InvalidAgeException {
+        if (age < 0) throw new InvalidAgeException("Invalid Age!");
         this.age = age;
         return true;
     }

@@ -9,7 +9,11 @@ public class ZooManagement {
     public static void main(String[] args) {
         Animal lion = new Animal();
         lion.setName("Simba");
-        lion.setAge(8);
+        try {
+            lion.setAge(-8);
+        } catch (InvalidAgeException e) {
+            System.out.println("soduhgliqhgfdihdslkqghlkqdsjflkjsqfjlkdsjflksjdlkfjsldjflksdjlkfjsdlkfj                    "+e.getMessage());
+        }
         lion.setFamily("Cats");
         lion.setIsMammal(true);
 
@@ -18,10 +22,19 @@ public class ZooManagement {
 
 
         Animal dog = new Animal("Canine", "Snoopy", 2, true);
+        Animal turtle = new Animal("test","test",3,false);
 
+        try {
+            myZoo.addAnimal(turtle);
+            System.out.println("---------------- "+myZoo.getNbrAnimals());
+            myZoo.addAnimal(lion);
+            System.out.println("---------------- "+myZoo.getNbrAnimals());
+            myZoo.addAnimal(dog);
+            System.out.println("---------------- "+myZoo.getNbrAnimals());
+        }catch(ZooFullException ex){
+            System.out.println(ex.getMessage());
+        }
 
-        System.out.println(myZoo.addAnimal(lion));
-        System.out.println(myZoo.addAnimal(dog));
 
         myZoo.displayAnimals();
 
@@ -32,19 +45,22 @@ public class ZooManagement {
         //   System.out.println(myZoo.removeAnimal(dog));
         myZoo.displayAnimals();
 
-
-        System.out.println(myZoo);
-
-        myZoo.addAnimal(lion);
-        myZoo.addAnimal(dog);
-        myZoo.addAnimal(dog2);
-        myZoo.displayAnimals();
-        System.out.println("a" + myZoo.removeAnimal(lion));
+        try {
+            System.out.println(myZoo);
+            myZoo.addAnimal(dog);
+            System.out.println("---------------- "+myZoo.getNbrAnimals());
+            myZoo.addAnimal(dog2);
+            System.out.println("---------------- "+myZoo.getNbrAnimals());
+        } catch (ZooFullException ex){
+            System.out.println(ex.getMessage());
+        }
+            myZoo.displayAnimals();
+        /*System.out.println("a" + myZoo.removeAnimal(lion));
         myZoo.displayAnimals();
         System.out.println("a" + myZoo.removeAnimal(dog2));
         myZoo.displayAnimals();
         System.out.println("a" + myZoo.removeAnimal(dog));
-        myZoo.displayAnimals();
+        myZoo.displayAnimals();*/
 
 //        System.out.println(Zoo.comparerZoo(myZoo, notMyZoo));
 //        System.out.println(myZoo.isZooFull());
